@@ -55,8 +55,11 @@
             <tr class="table">
               <th scope="row">{{item.id}}</th>
               <td>{{item.name}}</td>
-              <td>{{item.quantity}}</td>
-              <td>{{item.category.name}}</td>
+              {% if item.name in low_inventory %}
+              <td class="text text-danger">{{item.quantity}}</td>
+              {% else %}
+              <td class="text text-danger">{{item.quantity}}</td>
+              {% endif %}              <td>{{item.category.name}}</td>
               <td>{{item.date_created}}</td>
               <td>{{item.user}}</td>
               <td>
